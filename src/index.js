@@ -1,8 +1,15 @@
+// RUN APP
+// > node .\src\index.js
+
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path'); // modulo path para concatenar directorios
 
 const app = express();
+
+// IMPORTAR RUTAS DEFINIDAS CON ROUTER
+const homeRoutes = require('./routes/home');
+const userRoutes = require('./routes/users');
 
 // SETTINGS
 app.set('case sensitive routing',true); // nombre reservado para rutas con case-sensitive :bool
@@ -12,6 +19,10 @@ app.set('port',3000);
 // MIDDLEWARES
 app.use(morgan('dev'));
 app.use(express.json());
+
+// ACOPLAR RUTAS IMPORTADAS A LA APP
+app.use(homeRoutes);
+app.use(userRoutes);
 
 var products = [
     {
@@ -83,9 +94,9 @@ app.get('/products/:id', (req, res) => {
 }) 
 
 // STATIC FILES CONFIG
-app.use(express.static(path.join(__dirname,'public')));
-app.use(express.static(path.join(__dirname,'uploads')));
+app.use("/public", express.static(path.join(__dirname,'public')));
+app.use("/uploads", express.static(path.join(__dirname,'uploads')));
 
 // USING SETTING VAR
 app.listen(app.get('port'));
-console.log(app.get('appName') + `server on port: ` + app.get('port'));
+console.log(app.get('appName') + `\nserver on port: ` + app.get('port'));
