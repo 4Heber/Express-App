@@ -1,0 +1,15 @@
+<%- include('partials/header'); %>
+
+<section>
+    <h1>Comments</h1>
+    <% for(let i=0; i < comments.length; i++){ %>
+        <article>
+            <h2><%= comments[i].id %> · <%= comments[i].name %></h2>
+            <p><%= comments[i].email %></p>
+            <p><%= comments[i].body %></p>
+        </article>
+        <hr>
+    <% } %>
+</section>
+
+<%- include('partials/footer'); %>
