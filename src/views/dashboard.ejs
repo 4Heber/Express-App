@@ -1,0 +1,17 @@
+<%- include('partials/header'); %>
+
+<h1 style="text-align: center;">
+    <%= title %>
+</h1>
+<section>
+    <article>
+        <h2>Coins list</h2>
+        <ul>
+            <% for(let i=0; i < coins.length; i++){ %>
+                <li><%= coins[i].id %> - <%= coins[i].ticket %> - <%= coins[i].name %></li>
+            <% } %>
+        </ul>
+    </article>
+</section>
+
+<%- include('partials/footer'); %>

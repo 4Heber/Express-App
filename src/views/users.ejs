@@ -1,0 +1,22 @@
+<%- include('partials/header'); %>
+
+<h1 style="text-align: center;">
+    <%= title %>
+</h1>
+<h2><%= subTitle %></h2>
+
+<!-- EJS condicional sintaxis -->
+<% if(usersList){ %>
+    <ul>
+        <li>Username: user_01</li>
+        <li>Username: user_02</li>
+        <li>Username: user_03</li>
+        <li>Username: user_04</li>
+        <li>Username: user_05</li>
+        <li>Username: user_06</li>
+    </ul>
+<% } else{ %>
+    <p>No users to render...</p>
+<% } %>
+
+<%- include('partials/footer'); %>

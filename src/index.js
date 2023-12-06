@@ -7,6 +7,9 @@ const path = require('path'); // modulo path para concatenar directorios
 
 const app = express();
 
+// IMPORTAR EJS - TEMPLATE ENGINE
+require('ejs');
+
 // IMPORTAR RUTAS DEFINIDAS CON ROUTER
 const homeRoutes = require('./routes/home');
 const userRoutes = require('./routes/users');
@@ -15,6 +18,8 @@ const userRoutes = require('./routes/users');
 app.set('case sensitive routing',true); // nombre reservado para rutas con case-sensitive :bool
 app.set('appName','Express_REST_API');
 app.set('port',3000);
+app.set('view engine', 'ejs'); // motor de plantilla configurado
+app.set('views', path.join(__dirname, 'views')); // C:\Users\Heber\Documents\CODE\EXPRESS\REST-API\src\views\
 
 // MIDDLEWARES
 app.use(morgan('dev'));
