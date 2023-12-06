@@ -1,11 +1,11 @@
-// RUN APP
-// > node .\src\index.js
-
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path'); // modulo path para concatenar directorios
 
 const app = express();
+
+const connectDB = require('./db');
+connectDB();
 
 // IMPORTAR EJS - TEMPLATE ENGINE
 require('ejs');
